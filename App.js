@@ -2,8 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './screens/Login/Login';
-import SignUp from './screens/SignUp/SignUp';
+import SignUp from './screens/SignUp';
+import BreakLogin from './screens/BreakLogin';
+import Login from './screens/Login';
 
 
 const Stack = createStackNavigator();
@@ -11,8 +12,13 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-     <Stack.Navigator initialRouteName="Login">
+     <Stack.Navigator initialRouteName="BreakLogin">
         <Stack.Screen
+          name="BreakLogin"
+          component={BreakLogin}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
           name="Login"
           component={Login}
           options={{ headerShown: false }}
