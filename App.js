@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SignUp from './screens/SignUp';
 import BreakLogin from './screens/BreakLogin';
-import Login from './screens/Login';
 
 
 const Stack = createStackNavigator();
@@ -16,11 +15,6 @@ export default function App() {
         <Stack.Screen
           name="BreakLogin"
           component={BreakLogin}
-          options={{ headerShown: false }}
-        />
-         <Stack.Screen
-          name="Login"
-          component={Login}
           options={{ headerShown: false }}
         />
         <Stack.Screen

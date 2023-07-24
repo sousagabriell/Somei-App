@@ -2,16 +2,17 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
     titleLogin: {
-        width: '80%'
+        width: '80%',
+        marginBottom: '10%'
     },
     background: {
         backgroundColor: '#052B38',
         height: '100%',
-        paddingTop: '30%',
+        paddingTop: '18%',
         paddingHorizontal: '15%'
     },
     btnArea: {
-        marginTop: '50%',
+        marginTop: '5%',
     },
     createAccountArea: {
         display: 'flex',
@@ -32,4 +33,21 @@ export const styles = StyleSheet.create({
         marginTop: 15,
         backgroundColor: '#fff',
     },
+    miniButton: {
+        width: '49%',
+        backgroundColor: '#fff',
+        marginRight: '2%',
+        borderRadius: 10,
+        paddingLeft: 30,
+        marginBottom: 15,
+    },
+    forgotPassword:{
+        color: '#fff',
+        textDecorationLine: "underline",
+        textDecorationStyle: "solid",
+        marginBottom: '8%',
+    },
+    btnLogin:{
+        marginBottom: '4%',
+    }
 })

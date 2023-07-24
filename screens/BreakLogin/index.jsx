@@ -4,6 +4,7 @@ import { styles } from './styles';
 import { globalStyles } from "../../styles";
 import { Logo } from "../../components/Logo";
 import { Button } from "../../components/Button";
+import { TextInput } from "../../components/TextInput";
 
 export default function BreakLogin({ navigation }) {
 
@@ -16,13 +17,23 @@ export default function BreakLogin({ navigation }) {
           <Text style={globalStyles.titleWhiteLight}> comece aqui!</Text>
         </Text>
       </View>
+      <TextInput
+        placeholder="E-mail ou Telefone"
+        autoCompleteType="email"
+        textContentType="emailAddress"
+        keyboardType="email-address"
+      />
+      <TextInput
+        placeholder="Senha"
+        autoCompleteType="email"
+        textContentType="emailAddress"
+        keyboardType="email-address"
+      />
+        <TouchableOpacity>
+            <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
+          </TouchableOpacity>
       <View style={styles.btnArea}>
-        <Button mode="contained" onPress={() => navigation.navigate('Login')}>Entrar</Button>
-        <View style={styles.createAccountArea}>
-          <Button mode="contained" style={styles.createAccount}>
-            Criar Conta
-          </Button>
-          <View style={styles.miniButtonArea}>
+      <View style={styles.miniButtonArea}>
             <TouchableOpacity style={styles.miniButton}>
               <Image
                 source={require('../../assets/google-button.png')}
@@ -34,7 +45,10 @@ export default function BreakLogin({ navigation }) {
               />
             </TouchableOpacity>
           </View>
-        </View>
+        <Button mode="contained" onPress={() => navigation.navigate('Login')} style={styles.btnLogin}>Entrar</Button>
+         <TouchableOpacity>
+            <Text style={styles.forgotPassword} onPress={() => navigation.navigate('SignUp')}>Crie uma conta?</Text>
+          </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

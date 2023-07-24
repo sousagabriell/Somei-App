@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   input:{
-    borderRadius: 20,
-   
+    borderRadius: 20,  
   }
 });
