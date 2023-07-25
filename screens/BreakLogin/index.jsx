@@ -45,7 +45,7 @@ export default function BreakLogin({ navigation }) {
               />
             </TouchableOpacity>
           </View>
-        <Button mode="contained" onPress={() => navigation.navigate('Login')} style={styles.btnLogin}>Entrar</Button>
+        <Button mode="contained" onPress={() => navigation.navigate('Home')} style={styles.btnLogin}>Entrar</Button>
          <TouchableOpacity>
             <Text style={styles.forgotPassword} onPress={() => navigation.navigate('SignUp')}>Crie uma conta?</Text>
           </TouchableOpacity>
