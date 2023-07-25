@@ -49,7 +49,7 @@ export default function Home() {
                     <View style={[styles.areaCash, globalStyles.pl_3, globalStyles.pr_3, globalStyles.mt_3, globalStyles.ml_3, globalStyles.pt_4]}>
                         <View style={[globalStyles.rowColumn, globalStyles.justifyContent]}>
                             <Image
-                                source={require('../../assets/plus.png')}
+                                source={require('../../assets/-.png')}
                             />
                             <TouchableOpacity>
                                 <Image
