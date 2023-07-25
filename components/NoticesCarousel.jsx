@@ -3,7 +3,7 @@ import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView, StyleShe
 
 
 // New Vertical Carousel Component
-export function VerticalCarousel() {
+export function NoticeCarousel() {
   const buttonsData = [
     { id: "1", title: "Relatórios", icon: require("../assets/carrousel/stats.png") },
     { id: "2", title: "Eventos", icon: require("../assets/carrousel/calendar.png") },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     marginRight: 10,
-    width: 120,
+    width: 240,
     backgroundColor: "#078976",
     borderRadius: 8,
   },

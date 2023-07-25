@@ -28,6 +28,12 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  btnPlus: {
+    backgroundColor: '#052B38',
+    width: '85%',
+    borderRadius: 20,
+    height: 60,
+  },
   ml_2: {
     marginLeft: '3%'
   },

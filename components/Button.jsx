@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button as PaperButton } from 'react-native-paper';
+import { globalStyles } from '../styles';
 
 export function Button({ mode, style, children, ...props }) {
   return(
