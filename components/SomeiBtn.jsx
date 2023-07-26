@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import NewFlow from './NewFlow';
+
 
 export function SomeiBtn() {
+    const [isSomeiModalVisible, setIsSomeiModalVisible] = useState(false);
+
+    const toggleSomeiModal = () => {
+        setIsSomeiModalVisible(!isSomeiModalVisible);
+    };
     return (
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.someiBtn}
-                activeOpacity={1}
+                onPress={toggleSomeiModal}
             >
                 <Image style={styles.image} source={require('../assets/mini-logo.png')} />
             </TouchableOpacity>
+            {isSomeiModalVisible && <NewFlow visible={isSomeiModalVisible} onClose={toggleSomeiModal} />}
         </View>
     );
 }

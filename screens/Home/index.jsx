@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView } from "react-native";
 import { styles } from './styles'
 import { globalStyles } from "../../styles";
 import { VerticalCarousel } from "../../components/VerticalCarousel";
-import { Button } from "../../components/Button";
 import { SomeiBtn } from "../../components/SomeiBtn";
 import { NoticeCarousel } from "../../components/NoticesCarousel";
 
 export default function Home() {
+
     return (
         <SafeAreaView>
             <View style={styles.header}>
@@ -66,7 +66,7 @@ export default function Home() {
                             <Text style={[globalStyles.titleWhiteLight, globalStyles.mt_5]}>R$ -1.000,00</Text>
                         </View>
                     </View>
-                    <View style={[globalStyles.mt_5, globalStyles.ml_4, globalStyles.mr_3]}>
+                    <View style={[globalStyles.mt_5, globalStyles.ml_4]}>
                         <Text style={[globalStyles.mt_2, globalStyles.mb_3, globalStyles.titleSemiBold]}>Gestão da Loja</Text>
                         <VerticalCarousel />
                     </View>
@@ -78,7 +78,7 @@ export default function Home() {
                         <Text style={[globalStyles.ml_3, globalStyles.mt_3, globalStyles.titleWhiteSemiBold]}>Meus produtos e serviços</Text>
                     </TouchableOpacity>
                     <Text style={[globalStyles.mt_3, globalStyles.mb_3, globalStyles.titleSemiBold, globalStyles.ml_4]}>Bora somar?</Text>
-                    <View style={[globalStyles.ml_3, globalStyles.mr_3]}>
+                    <View style={[globalStyles.ml_3]}>
                     <NoticeCarousel/>
                     </View>
                 </ScrollView>
