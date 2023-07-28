@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, TouchableOpacity, Platform } from 'react-nativ
 import NewFlow from './NewFlow';
 
 
-export function SomeiBtn() {
+export function SomeiBtn({navigation}) {
     const [isSomeiModalVisible, setIsSomeiModalVisible] = useState(false);
 
     const toggleSomeiModal = () => {
@@ -17,7 +17,7 @@ export function SomeiBtn() {
             >
                 <Image style={styles.image} source={require('../assets/mini-logo.png')} />
             </TouchableOpacity>
-            {isSomeiModalVisible && <NewFlow visible={isSomeiModalVisible} onClose={toggleSomeiModal} />}
+            {isSomeiModalVisible && <NewFlow visible={isSomeiModalVisible} onClose={toggleSomeiModal} navigation={navigation}/>}
         </View>
     );
 }

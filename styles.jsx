@@ -29,10 +29,16 @@ export const globalStyles = StyleSheet.create({
     justifyContent: "space-between",
   },
   btnPlus: {
-    backgroundColor: '#052B38',
+    backgroundColor: '#073B4C',
     width: '85%',
-    borderRadius: 20,
+    borderRadius: 15,
     height: 60,
+  },
+  color_green:{
+    backgroundColor: '#078976',
+  },
+  color_grey:{
+    backgroundColor: '#B4B4B4'
   },
   ml_2: {
     marginLeft: '3%'
@@ -42,6 +48,9 @@ export const globalStyles = StyleSheet.create({
   },
   ml_4: {
     marginLeft: '8%'
+  },
+  ml_5: {
+    marginLeft: '12%'
   },
   mr_1: {
     marginRight: '2%'
@@ -54,6 +63,9 @@ export const globalStyles = StyleSheet.create({
   },
   mr_4: {
     marginRight: '8%'
+  },
+  mr_5: {
+    marginRight: '12%'
   },
   mt_1: {
     marginTop: '2%'

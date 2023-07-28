@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     areaCash:{
         backgroundColor: '#052B38',
         width: '40%',
-        borderRadius: 20,
-        height: '110%',
+        borderRadius: 15,
+        height: '96%',
     },
 })

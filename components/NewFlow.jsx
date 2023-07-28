@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, View, Text, TouchableOpacity, Image, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { globalStyles } from "../styles";
 
-export default function NewFlow({ visible, onClose }) {
+export default function NewFlow({ visible, onClose, navigation }) {
     return (
         <Modal
             animationType="fade"
@@ -19,14 +19,14 @@ export default function NewFlow({ visible, onClose }) {
                     />
                         <Text style={[styles.modalTitle, globalStyles.mt_2, globalStyles.mb_2]}>Cadastrar novo fluxo</Text>
                         <View style={[styles.modalButtonsContainer, globalStyles.mt_2]}>
-                            <TouchableOpacity style={styles.modalButton}>
+                            <TouchableOpacity style={styles.modalButton} onPress={() => navigation.navigate('SelectProduct')}>
                                  <Image
                         style={[globalStyles.mt_3]}
                         source={require('../assets/btn-flow/plus.png')}
                     />
                                 <Text style={styles.buttonText}>Entradas</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.modalButton}>
+                            <TouchableOpacity style={styles.modalButton} onPress={() => navigation.navigate('SelectExit')}>
                             <Image
                         style={[globalStyles.mt_3, globalStyles.mb_5]}
                         source={require('../assets/btn-flow/-.png')}

@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignUp from './screens/SignUp';
 import BreakLogin from './screens/BreakLogin';
 import Home from './screens/Home';
+import SelectProduct from './screens/SelectProduct';
+import SelectExit from './screens/NewFlow/SelectExit';
 
 
 const Stack = createStackNavigator();
@@ -26,6 +28,16 @@ export default function App() {
                <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="SelectProduct"
+          component={SelectProduct}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SelectExit"
+          component={SelectExit}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

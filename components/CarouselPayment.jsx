@@ -3,12 +3,15 @@ import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView, StyleShe
 
 
 // New Vertical Carousel Component
-export function VerticalCarousel() {
+export function CarouselPayment() {
   const buttonsData = [
-    { id: "1", title: "Relatórios", icon: require("../assets/carrousel/stats.png") },
-    { id: "2", title: "Eventos", icon: require("../assets/carrousel/calendar.png") },
-    { id: "3", title: "Pix", icon: require("../assets/carrousel/pix.png") },
-    { id: "4", title: "Documentos", icon: require("../assets/carrousel/file.png") },
+    { id: "1", title: "Pix", icon: require("../assets/forms-payment/pix.png") },
+    { id: "2", title: "Débito", icon: require("../assets/forms-payment/card.png") },
+    { id: "3", title: "Crédito", icon: require("../assets/forms-payment/credit.png") },
+    { id: "4", title: "Dinheiro", icon: require("../assets/money.png") },
+    { id: "5", title: "Boleto", icon: require("../assets/forms-payment/Barcode.png") },
+    { id: "6", title: "Cheque", icon: require("../assets/forms-payment/cheque.png") },
+
   ];
 
   const renderCarouselButton = ({ item }) => (
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginRight: 10,
     width: 120,
-    backgroundColor: "#078976",
+    backgroundColor: "#073B4C",
     borderRadius: 15,
     height: 100,
     paddingTop: 30,
