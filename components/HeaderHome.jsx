@@ -6,11 +6,12 @@ export function HeaderHome() {
     return (
         <View style={styles.header}>
             <TouchableOpacity
-                style={[styles.settingsButton, globalStyles.mt_5]}
+                style={[styles.settingsButton, globalStyles.mt_5, globalStyles.pt_3]}
                 onPress={() => {
                 }}
             >
                 <Image
+                style={[ globalStyles.mt_5]}
                     source={require('../assets/settings.png')}
                 />
             </TouchableOpacity>
