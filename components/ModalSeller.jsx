@@ -6,20 +6,26 @@ export default function ModalSeller({ visible, onClose, navigation }) {
   const sellersData = [
     {
       id: "1",
-      title: "Seller 1",
-      subtitle: "Subtitle for Seller 1",
-      image: require("../assets/logo.png"),
+      title: "Ana Beatriz",
+      subtitle: "Designer",
+      image: require("../assets/seller1.png"),
     },
     {
       id: "2",
-      title: "Seller 2",
-      subtitle: "Subtitle for Seller 2",
-      image: require("../assets/logo.png"),
+      title: "Breno Oliveira",
+      subtitle: "Designer",
+      image: require("../assets/seller3.png"),
+    },
+    {
+      id: "2",
+      title: "Vitória Giovanna",
+      subtitle: "Designer",
+      image: require("../assets/seller2.png"),
     },
   ];
 
   const renderListSeller = ({ item }) => (
-    <View style={styles.listItemContainer}>
+    <View style={[styles.listItemContainer, globalStyles.pt_3, globalStyles.pb_3]}>
       <Image source={item.image} style={styles.listItemImage} />
       <View style={styles.listItemTextContainer}>
         <Text style={styles.listItemTitle}>{item.title}</Text>
@@ -40,7 +46,7 @@ export default function ModalSeller({ visible, onClose, navigation }) {
             <View style={styles.modalTitleContainer}>
               <Text style={styles.modalTitleText}>Vendedores</Text>
               <TouchableOpacity onPress={onClose}>
-                <Text style={styles.closeButton}>X</Text>
+                <Image style={styles.closeButton} source={require('../assets/close.png')} />
               </TouchableOpacity>
             </View>
             <TextInput
@@ -49,16 +55,20 @@ export default function ModalSeller({ visible, onClose, navigation }) {
             // Implement your search logic here...
             />
             
+            <View style={[styles.modalSellersContainer, globalStyles.mb_3, globalStyles.mt_3]}>
+            <FlatList
+                data={sellersData}
+                keyExtractor={(item) => item.id}
+                renderItem={renderListSeller}
+              />
+            </View>
+
           </View>
           
         </View>
         
       </TouchableWithoutFeedback>
-      <FlatList
-                data={sellersData}
-                keyExtractor={(item) => item.id}
-                renderItem={renderListSeller}
-              />
+     
     </Modal>
   );
 }
@@ -72,7 +82,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: "#fff",
-    borderRadius: 15,
+    borderRadius: 30,
     padding: 10,
     alignItems: "center",
     width: "80%",
@@ -80,16 +90,19 @@ const styles = StyleSheet.create({
   },
   modalTitleContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     alignItems: "center",
     marginBottom: 10,
+    padding: 10
   },
   modalTitleText: {
+    
     fontWeight: "bold",
     fontSize: 18,
   },
   closeButton: {
-    fontSize: 18,
+    width: 15,
+    marginLeft: 150
   },
   searchInput: {
     width: "100%",
@@ -100,27 +113,33 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
   },
+  modalSellersContainer: {
+    width: "100%",
+    
+  },
   listItemContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 10,
-    zIndex: 9
+    zIndex: 9,
+    borderBottomWidth: 0.5,
+    borderColor: '#807070'
   },
   listItemImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 66,
+    height: 65,
+    borderRadius: 15,
     marginRight: 10,
   },
   listItemTextContainer: {
     flex: 1,
   },
   listItemTitle: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
   },
   listItemSubtitle: {
-    fontSize: 14,
+    fontSize: 12,
     color: "#666",
   },
   emptyListText: {

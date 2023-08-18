@@ -137,4 +137,19 @@ export const globalStyles = StyleSheet.create({
   pt_5: {
     paddingTop: '12%'
   },
+  pb_1: {
+   paddingBottom: '2%'
+  },
+  pb_2: {
+    paddingBottom: '3%'
+   },
+  pb_3: {
+    paddingBottom: '6%'
+  }, 
+  pb_4: {
+    paddingBottom: '9%'
+   },
+  pb_5: {
+    paddingBottom: '12%'
+  },
 })

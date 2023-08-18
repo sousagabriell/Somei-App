@@ -14,31 +14,26 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-     <Stack.Navigator initialRouteName="BreakLogin">
+     <Stack.Navigator initialRouteName="BreakLogin" screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="BreakLogin"
           component={BreakLogin}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="SignUp"
           component={SignUp}
-          options={{ headerShown: false }}
         />
                <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerShown: false }}
         />
          <Stack.Screen
           name="SelectProduct"
           component={SelectProduct}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="SelectExit"
           component={SelectExit}
-          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
