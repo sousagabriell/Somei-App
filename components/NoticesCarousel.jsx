@@ -2,7 +2,6 @@ import React from "react";
 import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView, StyleSheet, FlatList } from "react-native";
 
 
-// New Vertical Carousel Component
 export function NoticeCarousel() {
   const buttonsData = [
     { id: "1", title: "Relatórios", icon: require("../assets/carrousel/stats.png") },

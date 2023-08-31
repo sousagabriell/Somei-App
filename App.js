@@ -7,6 +7,7 @@ import BreakLogin from './screens/BreakLogin';
 import Home from './screens/Home';
 import SelectProduct from './screens/SelectProduct';
 import SelectExit from './screens/NewFlow/SelectExit';
+import ResumeSale from './screens/ResumeSale';
 
 
 const Stack = createStackNavigator();
@@ -34,6 +35,10 @@ export default function App() {
         <Stack.Screen
           name="SelectExit"
           component={SelectExit}
+        />
+         <Stack.Screen
+          name="ResumeSale"
+          component={ResumeSale}
         />
       </Stack.Navigator>
     </NavigationContainer>

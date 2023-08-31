@@ -2,11 +2,13 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import { globalStyles } from '../styles';
 
-export function ShoppingCart() {
+export function ShoppingCart({ navigation }) {
   return (
     <View style={styles.shadowContainer}>
     <View style={[styles.container, globalStyles.pt_2]}>
-      <TouchableOpacity style={[styles.button, globalStyles.mb_2]}>
+      <TouchableOpacity 
+      onPress={() => navigation.navigate('ResumeSale')}
+      style={[styles.button, globalStyles.mb_2]}>
         <Text style={styles.leftText}>Total R$ 0,00</Text>
         <View style={[globalStyles.rowColumn]}>
         <Text style={styles.rightText}>Cobrar</Text>

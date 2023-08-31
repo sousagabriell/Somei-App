@@ -84,7 +84,7 @@ export default function SelectProduct({ navigation }) {
                     </View>
                 </View>
                 {isSellerModalVisible && <ModalSeller visible={isSellerModalVisible} onClose={toggleSellerModal} navigation={navigation} />}
-                <ShoppingCart />
+                <ShoppingCart navigation={navigation}/>
             </View>
         </SafeAreaView>
     )

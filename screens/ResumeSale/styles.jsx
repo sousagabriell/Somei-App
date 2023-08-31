@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     header:{
@@ -25,4 +25,13 @@ export const styles = StyleSheet.create({
          borderRadius: 15,
          height: '96%',
      },
+     value_name:{
+        width: '50%',
+        display:'flex',
+     },
+     btnTotal:{
+        backgroundColor: '#E0BE36',
+        width: '85%',
+        borderRadius: 10,
+     }
 })
