@@ -7,14 +7,21 @@ import { SomeiBtn } from "../../components/SomeiBtn";
 import { NoticeCarousel } from "../../components/NoticesCarousel";
 import { Header } from "../../components/Header";
 import { HeaderHome } from "../../components/HeaderHome";
+import NewFlow from '../../components/NewFlow';
+
 
 export default function Home({ navigation }) {
+    const [isSomeiModalVisible, setIsSomeiModalVisible] = useState(false);
+
+    const toggleSomeiModal = () => {
+        setIsSomeiModalVisible(!isSomeiModalVisible);
+    };
 
     return (
         <SafeAreaView>
             <HeaderHome />
-            <View style={[styles.navigationArea]}>
-                <ScrollView>
+            <View style={[styles.navigationArea, styles.scrollView]}>
+                <ScrollView style={[globalStyles.mb_5]}>
                     <View style={[globalStyles.rowColumn]}>
                         <View style={[styles.areaCash, globalStyles.pl_3, globalStyles.pr_3, globalStyles.mt_3, globalStyles.ml_3, globalStyles.pt_3]}>
                             <View style={[globalStyles.rowColumn, globalStyles.justifyContent]}>
@@ -53,19 +60,20 @@ export default function Home({ navigation }) {
                         <Text style={[globalStyles.mt_2, globalStyles.mb_3, globalStyles.titleSemiBold]}>Gestão da Loja</Text>
                         <VerticalCarousel />
                     </View>
-                    <TouchableOpacity style={[globalStyles.btnPlus, globalStyles.ml_4, globalStyles.mt_3, globalStyles.rowColumn]}>
+                    <TouchableOpacity style={[globalStyles.btnYellow, globalStyles.ml_4, globalStyles.mt_3, globalStyles.rowColumn]} onPress={toggleSomeiModal}
+                    >
                         <Image
-                            style={[globalStyles.mt_2, globalStyles.ml_3, globalStyles.mt_3]}
-                            source={require('../../assets/apps.png')}
+                            style={[globalStyles.ml_3, globalStyles.mt_3]}
+                            source={require('../../assets/mini-logo.png')}
                         />
-                        <Text style={[globalStyles.ml_3, globalStyles.mt_3, globalStyles.titleWhiteSemiBold]}>Meus produtos e serviços</Text>
+                        <Text style={[globalStyles.ml_3, globalStyles.mt_3, globalStyles.titleYellowButton]}>cadastrar novo fluxo</Text>
+                        {isSomeiModalVisible && <NewFlow visible={isSomeiModalVisible} onClose={toggleSomeiModal} navigation={navigation}/>}
                     </TouchableOpacity>
                     <Text style={[globalStyles.mt_3, globalStyles.mb_3, globalStyles.titleSemiBold, globalStyles.ml_4]}>Bora somar?</Text>
                     <View style={[globalStyles.ml_4]}>
                         <NoticeCarousel />
                     </View>
                 </ScrollView>
-                <SomeiBtn navigation={navigation} />
             </View>
         </SafeAreaView>
     )

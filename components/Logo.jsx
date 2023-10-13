@@ -9,8 +9,6 @@ export function Logo() {
 
 const styles = StyleSheet.create({
     image: {
-        width: '28%',
-        height: 70,
         marginBottom: '10%'
     },
 });

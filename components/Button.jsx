@@ -24,12 +24,13 @@ const styles = StyleSheet.create({
     button: {
       width: '100%',
       borderRadius: 5,
-      backgroundColor: '#06D6A0'
+      backgroundColor: '#06D6A0', 
+      borderRadius: 15,
     },
     text: {
       fontWeight: '600',
       fontSize: 15,
-      lineHeight: 26,
-      color: '#494949'
+      lineHeight: 35,
+      color: '#11131D'
     },
   });

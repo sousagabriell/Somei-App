@@ -12,9 +12,8 @@ export const styles = StyleSheet.create({
      navigationArea:{
          zIndex: 2,
          borderRadius: 20,
-         marginTop: '-10%',
+         marginTop: '-8%',
          backgroundColor: '#ffffff',
-         height:'70%',
      },
      settingsButton:{
          marginLeft: '85%',
@@ -25,4 +24,8 @@ export const styles = StyleSheet.create({
          borderRadius: 15,
          height: '96%',
      },
+     scrollView:{
+        height: '97%',
+        paddingBottom: '60%'
+     }
 })

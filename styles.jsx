@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 
+
 export const globalStyles = StyleSheet.create({
   titleWhiteSemiBold: {
     fontWeight: '800',
@@ -17,12 +18,18 @@ export const globalStyles = StyleSheet.create({
     fontSize: RFValue(17),
     color: '#fff',
   },
+  textWhite:{
+    color: '#fff',
+  },
   rowColumn: {
     display: 'flex',
     flexDirection: 'row',
   },
   ml_1: {
     marginLeft: '2%'
+  },
+  center:{
+        alignItems: "center",
   },
   justifyContent: {
     alignItems: "center",
@@ -34,11 +41,36 @@ export const globalStyles = StyleSheet.create({
     borderRadius: 15,
     height: 60,
   },
-  color_green:{
+  btnYellow:{
+    backgroundColor: '#E0BE36',
+    width: '85%',
+    borderRadius: 15,
+    height: 60,
+  },
+  titleYellowButton:{
+    color: '#052B38',
+    fontWeight: 'bold'
+  },
+  color_green: {
     backgroundColor: '#078976',
   },
-  color_grey:{
+  color_grey: {
     backgroundColor: '#B4B4B4'
+  },
+  text_center:{
+    textAlign: 'center', 
+  },
+  alignItemsCenter: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  background: {
+    backgroundColor: '#052B38',
+    height: '100%',
+  },
+  goBackLogin: {
+    width: 70,
+    marginLeft: 20,
   },
   ml_2: {
     marginLeft: '3%'
@@ -98,6 +130,21 @@ export const globalStyles = StyleSheet.create({
     marginBottom: '12%'
   },
 
+  p_1: {
+    padding: '2%'
+  },
+  p_2: {
+    padding: '3%'
+  },
+  p_3: {
+    padding: '6%'
+  },
+  p_4: {
+    padding: '8%'
+  },
+  p_5: {
+    padding: '12%'
+  },
   pl_1: {
     paddingLeft: '2%'
   },
@@ -138,17 +185,17 @@ export const globalStyles = StyleSheet.create({
     paddingTop: '12%'
   },
   pb_1: {
-   paddingBottom: '2%'
+    paddingBottom: '2%'
   },
   pb_2: {
     paddingBottom: '3%'
-   },
+  },
   pb_3: {
     paddingBottom: '6%'
-  }, 
+  },
   pb_4: {
     paddingBottom: '9%'
-   },
+  },
   pb_5: {
     paddingBottom: '12%'
   },

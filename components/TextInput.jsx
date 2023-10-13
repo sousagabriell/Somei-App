@@ -1,17 +1,25 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { TextInput as Input } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#06D6A0',
+    underlineColor: 'transparent',
+    text: '#fff'
+  },
+};
 
-export function TextInput({ errorText, ...props }) {
-  
+export function TextInput({ errorText, placeholder, ...props }) {
+
   return (
-    
     <View style={styles.container}>
       <Input
-        style={styles.input}
-        underlineColor="transparent"
-        mode="outlined"
+        style={{ ...styles.input, color: '#fff' }}
+         placeholder={placeholder}
         {...props}
       />
       {errorText ? <Text style={styles.error}>{errorText}</Text> : null}
@@ -28,11 +36,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     paddingHorizontal: 4,
     paddingTop: 4,
+    color: 'red',
   },
-  label: {
-    color: '#fff',
+  input: {
+    borderRadius: 0,
+    backgroundColor: 'transparent',
+    borderBottomWidth: 1,
+    borderBottomColor: '#fff', // Cor da borda branca como padrão
   },
-  input:{
-    borderRadius: 20,  
-  }
 });

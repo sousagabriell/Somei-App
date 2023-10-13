@@ -14,21 +14,22 @@ export default function NewFlow({ visible, onClose, navigation }) {
                 <View style={styles.modalBackground}>
                     <View style={styles.modalContainer}>
                     <Image
-                        style={[globalStyles.mt_3]}
+                        style={[globalStyles.mt_3, globalStyles.mb_2]}
                         source={require('../assets/mini-logo.png')}
                     />
-                        <Text style={[styles.modalTitle, globalStyles.mt_2, globalStyles.mb_2]}>Cadastrar novo fluxo</Text>
-                        <View style={[styles.modalButtonsContainer, globalStyles.mt_2]}>
-                            <TouchableOpacity style={styles.modalButton} onPress={() => navigation.navigate('SelectProduct')}>
+                        <Text style={[styles.modalTitle, globalStyles.mt_2, globalStyles.mb_1]}>Cadastrar novo fluxo</Text>
+                        <Text style={[globalStyles.text_center]}>Você deseja cadastrar um fluxo de entrada ou saída?</Text>
+                        <View style={[styles.modalButtonsContainer, globalStyles.mt_4]}>
+                            <TouchableOpacity style={[styles.modalButton, globalStyles.rowColumn, globalStyles.center, globalStyles.alignItemsCenter, globalStyles.mr_1]} onPress={() => navigation.navigate('SelectProduct')}>
                                  <Image
                         style={[globalStyles.mt_3]}
                         source={require('../assets/btn-flow/plus.png')}
                     />
-                                <Text style={styles.buttonText}>Entradas</Text>
+                                <Text style={[styles.buttonText, globalStyles.mt_2]}>Entradas</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.modalButton} onPress={() => navigation.navigate('SelectExit')}>
+                            <TouchableOpacity style={[styles.modalButton, globalStyles.rowColumn , globalStyles.center, globalStyles.alignItemsCenter, globalStyles.mr_1]} onPress={() => navigation.navigate('SelectExit')}>
                             <Image
-                        style={[globalStyles.mt_3, globalStyles.mb_5]}
+                        style={[globalStyles.mt_3,globalStyles.mb_3]}
                         source={require('../assets/btn-flow/-.png')}
                     />
                                 <Text style={styles.buttonText}>Saídas</Text>
@@ -51,25 +52,27 @@ const styles = StyleSheet.create({
     modalContainer: {
         backgroundColor: "white",
         borderRadius: 15,
-        padding: 10,
+        padding: 20,
         alignItems: "center",
-        width: '60%',
-        backgroundColor: "#E0BE36",
-        height: '35%',
+        width: '85%',
+        backgroundColor: "#FFFFFF",
+        height: '40%',
     },
     modalTitle: {
         fontWeight: "bold",
         marginBottom: 10,
-        color: "#fff",
     },
     modalButtonsContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
         width: "100%",
         marginBottom: 20,
+        height: 80,
     },
     modalButton: {
         backgroundColor: "#ffffff",
+        borderWidth: 1,
+        borderColor: '#052B38',
         borderRadius: 15,
         paddingVertical: 10,
         paddingHorizontal: 10,
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
         width:'48%',
     },
     buttonText: {
-        color: "#414141",
-        marginTop:'35%'
+        color: "#052B38",
+        marginLeft: 5
     },
 });

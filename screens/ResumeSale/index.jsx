@@ -62,9 +62,9 @@ export default function ResumeSale({ navigation }) {
                             </View>
                         </View>
                     </View>
-                    <TouchableOpacity style={[styles.btnTotal, globalStyles.ml_4, globalStyles.mt_3, globalStyles.rowColumn]}>
+                    <View style={[styles.btnTotal, globalStyles.ml_4, globalStyles.mt_3, globalStyles.rowColumn]}>
                         <Text style={[globalStyles.ml_3, globalStyles.mt_2, globalStyles.mb_2, globalStyles.titleWhiteSemiBold]}>Total  R$ 999,00</Text>
-                    </TouchableOpacity>
+                    </View>
                     <Text style={[globalStyles.mt_3, globalStyles.mb_3, globalStyles.titleSemiBold, globalStyles.ml_4]}>Formas de Pagamento</Text>
                     <View style={[globalStyles.ml_4]}>
                     <VerticalCarousel />

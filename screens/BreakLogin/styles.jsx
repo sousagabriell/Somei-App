@@ -3,13 +3,10 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
     titleLogin: {
         width: '80%',
-        marginBottom: '10%'
     },
     background: {
         backgroundColor: '#052B38',
         height: '100%',
-        paddingTop: '18%',
-        paddingHorizontal: '15%'
     },
     btnArea: {
         marginTop: '5%',
@@ -37,8 +34,10 @@ export const styles = StyleSheet.create({
         width: '49%',
         backgroundColor: '#fff',
         marginRight: '2%',
-        borderRadius: 10,
-        paddingLeft: 30,
+        borderRadius: 15,
+        paddingLeft: 65,
+        paddingTop: 7,
+        paddingBottom: 7,
         marginBottom: 15,
     },
     forgotPassword:{

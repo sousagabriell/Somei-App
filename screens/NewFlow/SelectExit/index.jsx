@@ -59,9 +59,9 @@ export default function SelectExit({ navigation }) {
 
                 <View style={[globalStyles.mt_2, globalStyles.ml_4]}>
                         <Text style={[globalStyles.mb_2, globalStyles.titleSemiBold]}>Escolha a Forma de Saída</Text>
-                        <CarouselPayment />
+                        <CarouselPayment/>
                     </View>
-                <ExitBtn />
+                <ExitBtn  navigation={navigation}/>
             </View>
         </SafeAreaView>
     )

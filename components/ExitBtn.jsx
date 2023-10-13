@@ -2,11 +2,11 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import { globalStyles } from '../styles';
 
-export function ExitBtn() {
+export function ExitBtn( {navigation}) {
   return (
     <View style={styles.shadowContainer}>
     <View style={[styles.container, globalStyles.pt_2]}>
-      <TouchableOpacity style={[styles.button, globalStyles.mb_2, globalStyles.justifyContent]}>
+      <TouchableOpacity style={[styles.button, globalStyles.mb_2, globalStyles.justifyContent]} onPress={() => navigation.navigate('ResumeSale')}>
         <Text style={styles.leftText}>Registrar saída</Text>
         <Image style={[styles.image]}source={require('../assets/right-black.png')} />
       </TouchableOpacity>

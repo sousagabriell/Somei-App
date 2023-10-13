@@ -5,10 +5,11 @@ import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView, StyleShe
 // New Vertical Carousel Component
 export function VerticalCarousel() {
   const buttonsData = [
-    { id: "1", title: "Relatórios", icon: require("../assets/carrousel/stats.png") },
-    { id: "2", title: "Eventos", icon: require("../assets/carrousel/calendar.png") },
-    { id: "3", title: "Pix", icon: require("../assets/carrousel/pix.png") },
-    { id: "4", title: "Documentos", icon: require("../assets/carrousel/file.png") },
+    { id: "1", title: "Produtos e Serviços", icon: require("../assets/carrousel/apps.png") },
+    { id: "2", title: "Relatórios", icon: require("../assets/carrousel/stats.png") },
+    { id: "3", title: "Eventos", icon: require("../assets/carrousel/calendar.png") },
+    { id: "4", title: "Pix", icon: require("../assets/carrousel/pix.png") },
+    { id: "5", title: "Documentos", icon: require("../assets/carrousel/file.png") },
   ];
 
   const renderCarouselButton = ({ item }) => (
@@ -36,15 +37,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     marginRight: 10,
-    width: 120,
+    width: 130,
     backgroundColor: "#078976",
     borderRadius: 15,
-    height: 100,
-    paddingTop: 30,
+    height: 120,
+    paddingTop: 40,
   },
   carouselButtonText: {
     color: "#fff",
     fontWeight: "bold",
-    marginTop: "20%"
+    marginTop: "10%"
   },
 })
