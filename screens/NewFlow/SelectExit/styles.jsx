@@ -35,5 +35,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 6,
     marginRight: 25
-   }
+   },
+   
 })

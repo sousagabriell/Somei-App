@@ -4,6 +4,7 @@ import { styles } from './styles'
 import { globalStyles } from "../../styles";
 import { Header } from "../../components/Header";
 import { ShoppingCart } from "../../components/ShoppingCart";
+
 import ModalSeller from "../../components/ModalSeller";
 
 export default function SelectProduct({ navigation }) {
@@ -58,7 +59,7 @@ export default function SelectProduct({ navigation }) {
 
                 <View style={[globalStyles.rowColumn, styles.areaInfoSale]}>
                     <View style={[styles.btnSeller, globalStyles.pl_3, globalStyles.pr_3, globalStyles.mt_3, globalStyles.ml_3]}>
-                        <TouchableOpacity onPress={toggleSellerModal}>
+                        <TouchableOpacity onPress={() => navigation.navigate('SellerSelect')}>
 
                             <View style={[globalStyles.rowColumn, globalStyles.justifyContent]}>
                                 <Image

@@ -12,11 +12,17 @@ export const globalStyles = StyleSheet.create({
   titleSemiBold: {
     fontWeight: '800',
     fontSize: RFValue(17),
+    color: "#052B38",
   },
   titleWhiteLight: {
     fontWeight: '400',
     fontSize: RFValue(17),
     color: '#fff',
+  },
+  titleLight: {
+    fontWeight: '400',
+    fontSize: RFValue(17),
+    color: '#052B38',
   },
   textWhite:{
     color: '#fff',

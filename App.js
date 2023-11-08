@@ -10,6 +10,7 @@ import Home from './screens/Home';
 import SelectProduct from './screens/SelectProduct';
 import SelectExit from './screens/NewFlow/SelectExit';
 import ResumeSale from './screens/ResumeSale';
+import SellerSelect from './screens/SellerSelect';
 import theme from './paperTheme'; // Importe o tema personalizado
 import { PaperProvider } from 'react-native-paper';
 
@@ -56,6 +57,10 @@ export default function App() {
           <Stack.Screen
             name="ResumeSale"
             component={ResumeSale}
+          />
+          <Stack.Screen 
+            name="SellerSelect"
+            component={SellerSelect}
           />
         </Stack.Navigator>
       </NavigationContainer>
