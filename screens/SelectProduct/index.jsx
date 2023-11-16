@@ -73,7 +73,7 @@ export default function SelectProduct({ navigation }) {
                     </View>
 
                     <View style={[styles.btnSeller, globalStyles.pl_3, globalStyles.pr_3, globalStyles.mt_3, globalStyles.ml_3]}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('ClientSelect')}>
                             <View style={[globalStyles.rowColumn, globalStyles.justifyContent]}>
                                 <Image
                                     source={require('../../assets/icon-user.png')}

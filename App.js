@@ -13,6 +13,9 @@ import ResumeSale from './screens/ResumeSale';
 import SellerSelect from './screens/SellerSelect';
 import theme from './paperTheme'; // Importe o tema personalizado
 import { PaperProvider } from 'react-native-paper';
+import AddSeller from './components/AddSeller';
+import ClientSelect from './screens/ClientSelect';
+import AddClient from './components/AddClient';
 
 
 const customTheme = {
@@ -61,6 +64,18 @@ export default function App() {
           <Stack.Screen 
             name="SellerSelect"
             component={SellerSelect}
+          />
+          <Stack.Screen 
+            name="AddSeller"
+            component={AddSeller}
+          />
+          <Stack.Screen 
+            name="ClientSelect"
+            component={ClientSelect}
+          />
+          <Stack.Screen 
+            name="AddClient"
+            component={AddClient}
           />
         </Stack.Navigator>
       </NavigationContainer>
