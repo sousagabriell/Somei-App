@@ -3,41 +3,41 @@ import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from "react
 import { globalStyles } from "../styles";
 import { Feather } from '@expo/vector-icons';
 
-export default function ModalSeller({ navigation, searchQuery }) {
-  const [selectedSeller, setSelectedSeller] = useState(null);
+export default function ModalClient({ navigation, searchQuery }) {
+  const [selectedClient, setSelectedClient] = useState(null);
 
-  const sellersData = [
+  const ClientsData = [
     {
       id: "1",
-      title: "Ana Beatriz",
-      subtitle: "Diretora MKT",
-      image: require("../assets/seller1.png"),
+      title: "Zé da Universal",
+      subtitle: "Pessoa Física",
+      image: require("../assets/client1.png"),
     },
     {
       id: "2",
-      title: "Breno Oliveira",
-      subtitle: "Designer",
-      image: require("../assets/seller3.png"),
+      title: "Mata Grande",
+      subtitle: "Pessoa Física",
+      image: require("../assets/client2.png"),
     },
     {
       id: "3",
-      title: "Vitória Giovanna",
-      subtitle: "Pesquisa e UX",
-      image: require("../assets/seller2.png"),
+      title: "Shopee",
+      subtitle: "Pessoa Juridica",
+      image: require("../assets/client3.png"),
     },
     {
       id: "4",
-      title: "Luiza Magazine",
-      subtitle: "Gerente de vendas",
-      image: require("../assets/seller4.png"),
+      title: "B.O Kaze",
+      subtitle: "Pessoa Juridica",
+      image: require("../assets/client4.png"),
     },
   ];
 
-  const handleToggleSelection = (sellerId) => {
-    setSelectedSeller(sellerId === selectedSeller ? null : sellerId);
+  const handleToggleSelection = (ClientId) => {
+    setSelectedClient(ClientId === selectedClient ? null : ClientId);
   };
 
-  const renderListSeller = ({ item }) => (
+  const renderListClient = ({ item }) => (
     <View style={styles.listItemContainer}>
        {/* Botão de Edição */}
        <TouchableOpacity
@@ -63,8 +63,8 @@ export default function ModalSeller({ navigation, searchQuery }) {
         style={styles.checkboxContainer}
         onPress={() => handleToggleSelection(item.id)}
       >
-        <View style={[styles.checkbox, selectedSeller === item.id && styles.checkboxSelected]}>
-          {selectedSeller === item.id && <View style={styles.innerCheckbox} />}
+        <View style={[styles.checkbox, selectedClient === item.id && styles.checkboxSelected]}>
+          {selectedClient === item.id && <View style={styles.innerCheckbox} />}
         </View>
       </TouchableOpacity>
     </View>
@@ -72,11 +72,11 @@ export default function ModalSeller({ navigation, searchQuery }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Vendedores</Text>
+      <Text style={styles.pageTitle}>Clientes</Text>
       <FlatList
-        data={sellersData}
+        data={ClientsData}
         keyExtractor={(item) => item.id}
-        renderItem={renderListSeller}
+        renderItem={renderListClient}
       />
     </View>
   );
