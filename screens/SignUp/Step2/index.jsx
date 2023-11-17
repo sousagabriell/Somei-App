@@ -8,6 +8,7 @@ import { Button } from "../../../components/Button";
 
 
 export default function SignUpStep2({ navigation }) {
+
     return (
         <SafeAreaView style={globalStyles.background}>
             <View style={[globalStyles.goBackLogin, globalStyles.pt_3]}>
@@ -44,7 +45,8 @@ export default function SignUpStep2({ navigation }) {
                         placeholder="Digite seu código"
                     />
                     <Button mode="contained" onPress={() => navigation.navigate('SignUpStep2')} style={[styles.smsButton, globalStyles.mt_5]}>Receber via SMS</Button>
-                    <Button mode="contained" onPress={() => navigation.navigate('SignUpStep3')} style={[globalStyles.mt_3]}>Continuar</Button>
+                    <Button mode="contained" onPress={() => navigation.navigate('SignUpStep3')} 
+                    style={[globalStyles.mt_3]}>Continuar</Button>
                 </View>
             </ScrollView>
         </SafeAreaView>

@@ -12,8 +12,8 @@ export function HeaderHome() {
                             source={require('../assets/foto-perfil.png')}
                         />
                         <View>
-                            <Text style={[globalStyles.mt_3, globalStyles.titleWhiteSemiBold]}> Glowshine</Text>
-                            <Text style={[globalStyles.mt_1, globalStyles.titleWhiteLight]}> Olá, Ana!</Text>
+                            <Text style={[globalStyles.mt_2, globalStyles.titleWhiteSemiBold, globalStyles.ml_3]}> Glowshine</Text>
+                            <Text style={[globalStyles.mt_1, globalStyles.textWhite, globalStyles.ml_3]}> CNPJ XX.XXX.XXX/0001-XX</Text>
                         </View>
                     </View>
                     <TouchableOpacity
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
         paddingTop:30
     },
     settingsButton: {
-        marginLeft: '40%'
+        marginLeft: '18%'
     }
 });

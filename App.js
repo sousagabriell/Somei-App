@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import SignUpStep1 from './screens/SignUp/Step1';
 import SignUpStep2 from './screens/SignUp/Step2';
 import SignUpStep3 from './screens/SignUp/Step3';
@@ -22,6 +25,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
+    <Provider store={store}>
     <PaperProvider theme={customTheme}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="BreakLogin" screenOptions={{ headerShown: false }}>
@@ -60,6 +64,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
+    </Provider>
   );
 }
 

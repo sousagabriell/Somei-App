@@ -5,37 +5,47 @@ import { styles } from './styles';
 import { globalStyles } from "../../../styles";
 import { TextInput } from "../../../components/TextInput";
 import { Button } from "../../../components/Button";
-import * as ImagePicker from 'expo-image-picker';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserData } from '../../../redux/actions';
+
 
 
 export default function SignUpStep3({ navigation }) {
-    const [avatarSource, setAvatarSource] = useState(require('../../../assets/photo-profile-default.png'));
-    const selectImage = async () => {
-        const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    
-        if (permissionResult.granted === false) {
-            console.log('Permission to access camera roll is required!');
-            return;
-        }
-    
-        const result = await ImagePicker.launchImageLibraryAsync();
-    
-        if (result.cancelled) {
-            console.log('User cancelled image selection');
-        } else {
-            const source = { uri: result.uri };
-            setAvatarSource(source);
-        }
+    const dispatch = useDispatch();
+    const userData = useSelector((state) => state.userData);
+
+
+    const handleNomeEmpresaChange = (text) => {
+        dispatch(setUserData({ ...userData, empresa: { ...userData.empresa, razaoSocial: text } }));
+      };
+
+    const handleCnpjChange = (text) => {
+        dispatch(setUserData({ ...userData, empresa: { ...userData.empresa, cnpj: text } }));
     };
+
+    const handleSendUser = async () => {
+        try {
+          const response = await fetch('https://localhost:7030/api/empresa/cadastrar', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+          });
     
-    useEffect(() => {
-        (async () => {
-            const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-            if (permissionResult.granted === false) {
-                console.log('Permission to access camera roll is required!');
-            }
-        })();
-    }, []);
+          if (response.ok) {
+            console.log('Dados enviados com sucesso!');
+            navigation.navigate('BreakLogin');
+          } else {
+            console.error('Erro ao enviar os dados');
+          }
+        } catch (error) {
+          console.error('Erro ao enviar os dados:', error);
+        }
+      };
+    
+
+
     return (
         <SafeAreaView style={globalStyles.background}>
             <View style={[globalStyles.goBackLogin, globalStyles.pt_3]}>
@@ -61,26 +71,29 @@ export default function SignUpStep3({ navigation }) {
             <ScrollView>
                 <View style={[globalStyles.center, globalStyles.pl_4, globalStyles.pr_4]}>
                     <Image
-                        source={avatarSource}
                     />
                 </View>
                 <TouchableOpacity style={[styles.btnCam, globalStyles.center, globalStyles.alignItemsCenter]}>
                     <Image
                         source={require('../../../assets/cam.png')}
                     />
-                    </TouchableOpacity>
+                </TouchableOpacity>
                 <View style={[globalStyles.pl_4, globalStyles.pr_4, globalStyles.pb_4, globalStyles.mt_4]}>
                     <TextInput
                         textColor="#FFFFFF"
                         placeholderTextColor="#FFFFFF"
                         placeholder="Nome da Empresa"
+                        value={userData.usuario.nomeEmpresa}
+                        onChangeText={handleNomeEmpresaChange}
                     />
                     <TextInput
                         textColor="#FFFFFF"
                         placeholderTextColor="#FFFFFF"
                         placeholder="CNPJ (Opcional)"
+                        value={userData.usuario.cnpj}
+                        onChangeText={handleCnpjChange}
                     />
-                    <Button mode="contained" onPress={() => navigation.navigate('SignUpStep3')} style={[globalStyles.mt_5]} >Continuar</Button>
+                    <Button mode="contained" onPress={(handleSendUser)} style={[globalStyles.mt_5]}>Continuar</Button>
                 </View>
             </ScrollView>
         </SafeAreaView>
