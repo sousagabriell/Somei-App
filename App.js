@@ -14,11 +14,12 @@ import SelectProduct from './screens/SelectProduct';
 import SelectExit from './screens/NewFlow/SelectExit';
 import ResumeSale from './screens/ResumeSale';
 import SellerSelect from './screens/SellerSelect';
-import theme from './paperTheme'; // Importe o tema personalizado
+import theme from './paperTheme';
 import { PaperProvider } from 'react-native-paper';
 import AddSeller from './components/AddSeller';
 import ClientSelect from './screens/ClientSelect';
 import AddClient from './components/AddClient';
+import Products from './screens/Products';
 
 
 const customTheme = {
@@ -30,60 +31,64 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <Provider store={store}>
-    <PaperProvider theme={customTheme}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="BreakLogin" screenOptions={{ headerShown: false }}>
-          <Stack.Screen
-            name="BreakLogin"
-            component={BreakLogin}
-          />
-          <Stack.Screen
-            name="SignUp"
-            component={SignUpStep1}
-          />
-          <Stack.Screen
-            name="SignUpStep2"
-            component={SignUpStep2}
-          />
-           <Stack.Screen
-            name="SignUpStep3"
-            component={SignUpStep3}
-          />
-          <Stack.Screen
-            name="Home"
-            component={Home}
-          />
-          <Stack.Screen
-            name="SelectProduct"
-            component={SelectProduct}
-          />
-          <Stack.Screen
-            name="SelectExit"
-            component={SelectExit}
-          />
-          <Stack.Screen
-            name="ResumeSale"
-            component={ResumeSale}
-          />
-          <Stack.Screen 
-            name="SellerSelect"
-            component={SellerSelect}
-          />
-          <Stack.Screen 
-            name="AddSeller"
-            component={AddSeller}
-          />
-          <Stack.Screen 
-            name="ClientSelect"
-            component={ClientSelect}
-          />
-          <Stack.Screen 
-            name="AddClient"
-            component={AddClient}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+      <PaperProvider theme={customTheme}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="BreakLogin" screenOptions={{ headerShown: false }}>
+            <Stack.Screen
+              name="BreakLogin"
+              component={BreakLogin}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUpStep1}
+            />
+            <Stack.Screen
+              name="SignUpStep2"
+              component={SignUpStep2}
+            />
+            <Stack.Screen
+              name="SignUpStep3"
+              component={SignUpStep3}
+            />
+            <Stack.Screen
+              name="Home"
+              component={Home}
+            />
+            <Stack.Screen
+              name="SelectProduct"
+              component={SelectProduct}
+            />
+            <Stack.Screen
+              name="SelectExit"
+              component={SelectExit}
+            />
+            <Stack.Screen
+              name="ResumeSale"
+              component={ResumeSale}
+            />
+            <Stack.Screen
+              name="SellerSelect"
+              component={SellerSelect}
+            />
+            <Stack.Screen
+              name="AddSeller"
+              component={AddSeller}
+            />
+            <Stack.Screen
+              name="ClientSelect"
+              component={ClientSelect}
+            />
+            <Stack.Screen
+              name="AddClient"
+              component={AddClient}
+            />
+            <Stack.Screen
+              name="Products"
+              component={Products}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
     </Provider>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { globalStyles } from '../styles';
 
-export function HeaderHome() {
+export function HeaderHome({establishmentName, cnpj}) {
     return (
         <View style={styles.header}>
             <View style={globalStyles.rowColumn}>
@@ -12,8 +12,8 @@ export function HeaderHome() {
                             source={require('../assets/foto-perfil.png')}
                         />
                         <View>
-                            <Text style={[globalStyles.mt_2, globalStyles.titleWhiteSemiBold, globalStyles.ml_3]}> Glowshine</Text>
-                            <Text style={[globalStyles.mt_1, globalStyles.textWhite, globalStyles.ml_3]}> CNPJ XX.XXX.XXX/0001-XX</Text>
+                            <Text style={[globalStyles.mt_2, globalStyles.titleWhiteSemiBold, globalStyles.ml_3]}> {establishmentName}</Text>
+                            <Text style={[globalStyles.mt_1, globalStyles.textWhite, globalStyles.ml_3]}> CNPJ {cnpj}</Text>
                         </View>
                     </View>
                     <TouchableOpacity

@@ -3,9 +3,9 @@ import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView, StyleShe
 
 
 // New Vertical Carousel Component
-export function VerticalCarousel() {
+export function VerticalCarousel({navigation}) {
   const buttonsData = [
-    { id: "1", title: "Produtos e Serviços", icon: require("../assets/carrousel/apps.png") },
+    { id: "1", title: "Produtos e Serviços", icon: require("../assets/carrousel/apps.png"), route: "Products"},
     { id: "2", title: "Relatórios", icon: require("../assets/carrousel/stats.png") },
     { id: "3", title: "Eventos", icon: require("../assets/carrousel/calendar.png") },
     { id: "4", title: "Pix", icon: require("../assets/carrousel/pix.png") },
@@ -13,7 +13,7 @@ export function VerticalCarousel() {
   ];
 
   const renderCarouselButton = ({ item }) => (
-    <TouchableOpacity style={styles.carouselButton}>
+    <TouchableOpacity style={styles.carouselButton} onPress={() => navigation.navigate(item.route)}>
       <Image source={item.icon} />
       <Text style={styles.carouselButtonText}>{item.title}</Text>
     </TouchableOpacity>

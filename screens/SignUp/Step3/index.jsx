@@ -7,6 +7,7 @@ import { TextInput } from "../../../components/TextInput";
 import { Button } from "../../../components/Button";
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../../../redux/actions';
+import { cadastrarEmpresa } from '../../../services/signUpService';
 
 
 
@@ -25,22 +26,11 @@ export default function SignUpStep3({ navigation }) {
 
     const handleSendUser = async () => {
         try {
-          const response = await fetch('https://localhost:7030/api/empresa/cadastrar', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData),
-          });
-    
-          if (response.ok) {
-            console.log('Dados enviados com sucesso!');
-            navigation.navigate('BreakLogin');
-          } else {
-            console.error('Erro ao enviar os dados');
-          }
+          const response = await cadastrarEmpresa(userData);
+          console.log('Dados enviados com sucesso!');
+          navigation.navigate('BreakLogin');
         } catch (error) {
-          console.error('Erro ao enviar os dados:', error);
+          console.error(error.message);
         }
       };
     

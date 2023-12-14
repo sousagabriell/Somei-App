@@ -84,11 +84,13 @@ export default function SignUpStep1({ navigation }) {
                         placeholder="Senha"
                         value={userData.usuario.senha}
                         onChangeText={handleSenhaChange}
+                        secureTextEntry
                     />
                     <TextInput
                         textColor="#FFFFFF"
                         placeholderTextColor="#FFFFFF"
                         placeholder="Confirmar Senha"
+                        secureTextEntry
                     />
                     <Button mode="contained" onPress={() => navigation.navigate('SignUpStep2')} style={[globalStyles.mt_4]}>Continuar</Button>
                 </View>
