@@ -26,7 +26,7 @@ export function CarouselPayment() {
 
   const renderCarouselButton = ({ item }) => (
     <TouchableOpacity style={styles.carouselButton}>
-      <Image source={item.icon} />
+      <Image source={item.icon}/>
       <Text style={styles.carouselButtonText}>{item.nome}</Text>
     </TouchableOpacity>
   );

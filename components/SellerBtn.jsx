@@ -2,12 +2,11 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import { globalStyles } from '../styles';
 
-export function SellerBtn({ onPress, isButtonDisabled }) {
+export function SellerBtn({ onPress, isButtonDisabled, title }) {
   return (
     <View style={styles.shadowContainer}>
       <View style={[styles.container, globalStyles.pt_2]}>
         <TouchableOpacity
-        
           style={[
             styles.button,
             globalStyles.mb_2,
@@ -20,7 +19,7 @@ export function SellerBtn({ onPress, isButtonDisabled }) {
           onPress={onPress} // Alteração aqui para chamar a função passada como prop
           disabled={isButtonDisabled}
         >
-          <Text style={styles.leftText}>Cadastrar vendedor</Text>
+          <Text style={styles.leftText}>{title}</Text>
           <Image style={[styles.image]} source={require('../assets/right-black.png')} />
         </TouchableOpacity>
       </View>

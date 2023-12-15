@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, TextInput } from "react-native";
 import { SellerBtn } from "../../components/SellerBtn";
 import { styles } from "./styles";
-import { cadastrarCupom } from "../../services/couponsService"; 
+import { cadastrarCupom } from "../../services/couponsService";
 import { Header2 } from "../../components/Header2";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -11,10 +11,9 @@ export default function AddCoupon({ navigation }) {
   const [valor, setValor] = useState("");
   const [titulo, setTitulo] = useState("");
 
-
   const handleAddSeller = async () => {
     try {
-      const userDataString = await AsyncStorage.getItem('userData');
+      const userDataString = await AsyncStorage.getItem("userData");
 
       if (!descricao || !valor) {
         console.error("Preencha todos os campos obrigatórios.");
@@ -30,20 +29,20 @@ export default function AddCoupon({ navigation }) {
       };
       const resultadoCadastro = await cadastrarCupom(cupomData);
       if (resultadoCadastro) {
-        console.log('Cupom cadastrado com sucesso:', resultadoCadastro);
-        navigation.navigate('Coupon');
+        console.log("Cupom cadastrado com sucesso:", resultadoCadastro);
+        navigation.navigate("Coupon");
       } else {
-        console.error('Falha ao cadastrar o cupom.');
+        console.error("Falha ao cadastrar o cupom.");
       }
     } catch (error) {
-      console.error('Erro ao processar o cadastro do cupom:', error);
+      console.error("Erro ao processar o cadastro do cupom:", error);
     }
   };
 
   const isButtonDisabled = !(descricao && valor);
 
   return (
-<View style={styles.container}>
+    <View style={styles.container}>
       <Header2 namePage={"Adicionar Cupons"} navigation={navigation} />
       <TextInput
         style={styles.input}
@@ -58,13 +57,14 @@ export default function AddCoupon({ navigation }) {
         value={valor}
         onChangeText={(text) => setValor(text)}
       />
-           <TextInput
+      <TextInput
         style={styles.input}
         placeholder="Titulo"
         value={titulo}
         onChangeText={(text) => setTitulo(text)}
       />
       <SellerBtn
+        title={"Cadastrar Cupom"}
         navigation={navigation}
         isButtonDisabled={isButtonDisabled}
         onPress={handleAddSeller}

@@ -30,7 +30,6 @@ export default function Coupon({ navigation }) {
     }, []);
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [sellers, setSellers] = useState([]);
 
   return ( 
     <View>
@@ -49,7 +48,7 @@ export default function Coupon({ navigation }) {
         onPress={() => navigation.navigate("AddCoupon")}
       >
         <Image source={require("../../assets/Add_User_Male.png")} style={styles.icon} />
-        <Text style={styles.addButtonText}>Cadastrar Novo Vendedor</Text>
+        <Text style={styles.addButtonText}>Cadastrar Novo Cupom</Text>
         <Image source={require("../../assets/right.png")} style={styles.icon2} />
       </TouchableOpacity>
       <View style={styles.container}>

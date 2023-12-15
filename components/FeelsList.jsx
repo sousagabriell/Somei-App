@@ -19,7 +19,7 @@ const imagePaths = [
   require("../assets/cupom/cupom-4.png"),
 ];
 
-export default function FeelsList({ cupons, navigation }) {
+export default function FeelsList({ navigation }) {
 
     const [taxas, setTaxas] = useState([]);
     const handleFeels = async () => {
@@ -47,10 +47,10 @@ export default function FeelsList({ cupons, navigation }) {
   };
 
   const renderCupomItem = ({ item }) => (
-    <View style={[styles.listItemContainer, globalStyles.mt_1]}>
+    <View style={[styles.listItemContainer, globalStyles.mb_2, globalStyles.mt_2]}>
       <View style={styles.listItemTextContainer}>
         <Text style={styles.listItemTitle}>{item.titulo}</Text>
-        <Text>{item.descricao}</Text>
+        <Text style={globalStyles.mb_3}>{item.descricao}</Text>
       </View>
       <TouchableOpacity
         style={styles.checkboxContainer}

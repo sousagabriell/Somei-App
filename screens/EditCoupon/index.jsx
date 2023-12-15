@@ -95,6 +95,7 @@ export default function EditCoupon({ navigation, route }) {
         navigation={navigation}
         isButtonDisabled={isButtonDisabled}
         onPress={handleEditCoupon}
+        title={"Salvar Alterações"}
       />
     </View>
   );

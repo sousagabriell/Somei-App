@@ -45,7 +45,7 @@ export default function Feels({ navigation }) {
       </View>
       <View style={styles.container}>
       <ScrollView>
-        <FeelsList cupons={cupons} navigation={navigation} />
+        <FeelsList navigation={navigation} />
       </ScrollView>
       </View>
     </View>

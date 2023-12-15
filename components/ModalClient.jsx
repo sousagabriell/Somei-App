@@ -3,9 +3,8 @@ import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from "react
 import { globalStyles } from "../styles";
 import { Feather } from '@expo/vector-icons';
 
-export default function ModalClient({ navigation, searchQuery }) {
+export default function ModalClient({ navigation, searchQuery,client }) {
   const [selectedClient, setSelectedClient] = useState(null);
-
   const ClientsData = [
     {
       id: "1",
@@ -51,8 +50,8 @@ export default function ModalClient({ navigation, searchQuery }) {
 
       {/* Informações do Vendedor */}
       <View style={styles.listItemTextContainer}>
-        <Text style={styles.listItemTitle}>{item.title}</Text>
-        <Text style={styles.listItemSubtitle}>{item.subtitle}</Text>
+        <Text style={styles.listItemTitle}>{item.nome}</Text>
+        <Text style={styles.listItemSubtitle}>{item.cpfCnpj}</Text>
       </View>
 
       {/* Imagem do Vendedor */}
@@ -74,7 +73,7 @@ export default function ModalClient({ navigation, searchQuery }) {
     <View style={styles.container}>
       <Text style={styles.pageTitle}>Clientes</Text>
       <FlatList
-        data={ClientsData}
+        data={client}
         keyExtractor={(item) => item.id}
         renderItem={renderListClient}
       />
