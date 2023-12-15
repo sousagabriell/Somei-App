@@ -4,11 +4,14 @@ import { globalStyles } from "../styles";
 import { Header2 } from "./Header2";
 import * as ImagePicker from 'expo-image-picker';
 import { ClientBtn } from "./ClientBtn";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { cadastrarCliente } from "../services/clientService";
+
 
 export default function AddClient({ navigation }) {
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [tel, setTel] = useState("");
+  const [nome, setNome] = useState("");
+  const [cpfcnpj, setCpfcnpj] = useState("");
+  const [email, setEmail] = useState("");
   const [image, setImage] = useState(null);
 
   const requestGalleryPermission = async () => {
@@ -56,11 +59,35 @@ export default function AddClient({ navigation }) {
     }
   };
 
-  const handleAddClient = () => {
-    // Não sei como fazer isso aqui funcionar
+  const handleAddClient = async () => {
+    try {
+      const userDataString = await AsyncStorage.getItem("userData");
+
+      if (!nome || !cpfcnpj) {
+        console.error("Preencha todos os campos obrigatórios.");
+        return;
+      }
+      const userData = JSON.parse(userDataString);
+      const clientsData = {
+        nome: nome,
+        cpfcnpj: cpfcnpj,
+        email: email,
+        idCliente: userData.cliente.idCliente,
+      };
+      const resultadoCadastro = await cadastrarCliente(clientsData);
+      console.log(resultadoCadastro + 'aqui');
+      if (resultadoCadastro) {
+        console.log("Cliente cadastrado com sucesso:", resultadoCadastro);
+        navigation.navigate("ClientSelect");
+      } else {
+        console.error("Falha ao cadastrar o Cliente.");
+      }
+    } catch (error) {
+      console.error("Erro ao processar o cadastro do Cliente:", error);
+    }
   };
 
-  const isButtonDisabled = !(name && role && tel);
+  const isButtonDisabled = !(nome && email && cpfcnpj);
 
   return (
     <View style={styles.container}>
@@ -74,23 +101,25 @@ export default function AddClient({ navigation }) {
       </View>
       <TextInput
         style={styles.input}
-        placeholder="Nome"
-        value={name}
-        onChangeText={(text) => setName(text)}
+        placeholder="nome"
+        value={nome}
+        onChangeText={(text) => setNome(text)}
       />
       <TextInput
         style={styles.input}
-        placeholder="E-mail"
-        value={role}
-        onChangeText={(text) => setRole(text)}
+        placeholder="email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         style={styles.input}
-        placeholder="Telefone"
-        value={telefone}
-        onChangeText={(text) => setTel(text)}
+        placeholder="cpfCnpj"
+        value={cpfcnpj}
+        onChangeText={(text) => setCpfcnpj(text)}
       />
-      <ClientBtn navigation={navigation} isButtonDisabled={isButtonDisabled} />
+      <ClientBtn navigation={navigation}
+       isButtonDisabled={isButtonDisabled}
+        onPress={handleAddClient}/>
     </View>
     
   );

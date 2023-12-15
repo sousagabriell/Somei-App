@@ -37,3 +37,42 @@ export const getAllClients = async () => {
       return null;
     }
   };
+
+  export const cadastrarCliente = async (clientsData) => {
+    try {
+      const userDataString = await AsyncStorage.getItem('userData');
+      if (userDataString) {
+        const userData = JSON.parse(userDataString);
+        if (userData && userData.token) {
+          const token = userData.token;
+  
+          const response = await fetch(`${BASE_URL}/Cliente/Cadastrar`, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(clientsData),
+          });
+  
+          if (response.ok) {
+            const clienteCadastrado = await response.json();
+            return clienteCadastrado;
+          } else {
+            console.error('Erro na requisição:', response.status);
+            return null;
+          }
+        } else {
+          console.error('Token não encontrado nos dados do usuário.');
+          return null;
+        }
+      } else {
+        console.error('Dados do usuário não encontrados.');
+        return null;
+      }
+    } catch (error) {
+      console.error('Erro ao fazer a requisição:', error);
+      return null;
+    }
+  };  
