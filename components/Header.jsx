@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { globalStyles } from '../styles';
 
-export function Header({ namePage, navigation }) {
+export function Header({ namePage, navigation, establishmentName, cnpj }) {
     return (
         <View style={styles.header}>
             <TouchableOpacity
@@ -21,8 +21,8 @@ export function Header({ namePage, navigation }) {
                     source={require('../assets/foto-perfil.png')}
                 />
                 <View style={[globalStyles.mt_1, , globalStyles.ml_1]}>
-                    <Text style={[globalStyles.titleWhiteSemiBold]}> Glowshine</Text>
-                    <Text style={[globalStyles.mt_1, globalStyles.textWhite]}> CNPJ XX.XXX.XXX/0001-XX</Text>
+                    <Text style={[globalStyles.titleWhiteSemiBold]}> {establishmentName}</Text>
+                    <Text style={[globalStyles.mt_1, globalStyles.textWhite]}> {cnpj}</Text>
                 </View>
             </View>
         </View>);

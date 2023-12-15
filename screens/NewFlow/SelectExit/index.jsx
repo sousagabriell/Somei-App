@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from './styles'
 import { Header } from "../../../components/Header";
@@ -7,11 +7,41 @@ import { ShoppingCart } from "../../../components/ShoppingCart";
 import { VerticalCarousel } from "../../../components/VerticalCarousel";
 import { CarouselPayment } from "../../../components/CarouselPayment";
 import { ExitBtn } from "../../../components/ExitBtn";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function SelectExit({ navigation }) {
+    const [empresaData, setEmpresaData] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userData = await AsyncStorage.getItem('userData');
+                if (userData) {
+                    const { empresa } = JSON.parse(userData);
+                    setEmpresaData(empresa);
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+    
+    if (!empresaData) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        );
+    }
+
+
+    const { razaoSocial, cnpj } = empresaData;
     return (
         <SafeAreaView>
-            <Header namePage={"Cadastrar novo fluxo"} navigation={navigation} />
+            <Header namePage={"Cadastrar novo fluxo"} navigation={navigation} establishmentName={razaoSocial} cnpj={cnpj} />
             <View style={[styles.navigationArea]}>
                 <View style={[globalStyles.rowColumn]}>
                     <View style={[styles.areaCash, globalStyles.color_grey, globalStyles.pl_3, globalStyles.pr_3, globalStyles.mt_3, globalStyles.ml_3, globalStyles.pt_2]}>

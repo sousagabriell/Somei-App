@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from './styles'
 import { globalStyles } from "../../styles";
@@ -6,9 +6,38 @@ import { Header } from "../../components/Header";
 import { ShoppingCart } from "../../components/ShoppingCart";
 
 import ModalSeller from "../../components/ModalSeller";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function SelectProduct({ navigation }) {
     const [isSellerModalVisible, setIsSellerModalVisible] = useState(false);
+    const [empresaData, setEmpresaData] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userData = await AsyncStorage.getItem('userData');
+                if (userData) {
+                    const { empresa } = JSON.parse(userData);
+                    setEmpresaData(empresa);
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
+
+    if (!empresaData) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        );
+    }
+
+    const { razaoSocial, cnpj } = empresaData;
 
     const toggleSellerModal = () => {
         setIsSellerModalVisible(!isSellerModalVisible);
@@ -16,7 +45,7 @@ export default function SelectProduct({ navigation }) {
 
     return (
         <SafeAreaView>
-            <Header namePage={"Cadastrar novo fluxo"} navigation={navigation} />
+            <Header namePage={"Cadastrar novo fluxo"} navigation={navigation} establishmentName={razaoSocial} cnpj={cnpj} />
             <View style={[styles.navigationArea]}>
                 <View style={[globalStyles.rowColumn]}>
                     <View style={[styles.areaCash, globalStyles.color_green, globalStyles.pl_3, globalStyles.pr_3, globalStyles.mt_3, globalStyles.ml_3, globalStyles.pt_2]}>

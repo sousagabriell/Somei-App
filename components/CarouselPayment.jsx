@@ -1,30 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, Text, View, TouchableOpacity, ScrollView, StyleSheet, FlatList } from "react-native";
+import { getAllPayments } from "../services/carouselPayment";
 
 
-// New Vertical Carousel Component
 export function CarouselPayment() {
-  const buttonsData = [
-    { id: "1", title: "Pix", icon: require("../assets/forms-payment/pix.png") },
-    { id: "2", title: "Débito", icon: require("../assets/forms-payment/card.png") },
-    { id: "3", title: "Crédito", icon: require("../assets/forms-payment/credit.png") },
-    { id: "4", title: "Dinheiro", icon: require("../assets/money.png") },
-    { id: "5", title: "Boleto", icon: require("../assets/forms-payment/Barcode.png") },
-    { id: "6", title: "Cheque", icon: require("../assets/forms-payment/cheque.png") },
+  const [payments, setPayments] = useState([]);
 
-  ];
+  const handleCoupons = async () => {
+    try {
+      const paymentsData = await getAllPayments();
+
+      if (paymentsData && paymentsData.data) {
+        setPayments(paymentsData.data);
+      } else {
+        console.error('Erro ao obter cupons após o login.');
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+    }
+  };
+
+  useEffect(() => {
+    handleCoupons();
+  }, []);
 
   const renderCarouselButton = ({ item }) => (
     <TouchableOpacity style={styles.carouselButton}>
       <Image source={item.icon} />
-      <Text style={styles.carouselButtonText}>{item.title}</Text>
+      <Text style={styles.carouselButtonText}>{item.nome}</Text>
     </TouchableOpacity>
   );
   return (
     <FlatList
-      data={buttonsData}
+      data={payments}
       renderItem={renderCarouselButton}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.idEspecie}
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.verticalCarousel}
