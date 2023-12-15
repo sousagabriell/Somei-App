@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Text } from "react-native";
 import { SellerBtn } from "../../components/SellerBtn";
 import { styles } from "./styles";
 import { cadastrarCupom } from "../../services/couponsService";
 import { Header2 } from "../../components/Header2";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { globalStyles } from "../../styles";
 
-export default function AddFeels({ navigation }) {
-  const [descricao, setDescricao] = useState("");
-  const [valor, setValor] = useState("");
-  const [titulo, setTitulo] = useState("");
+export default function AddFeels({ navigation, route  }) {
+  const { taxaData } = route.params;
+  const { idTaxa } = useState(taxaData.idTaxa.toString());
+  const [descricao, setDescricao] = useState(taxaData.descricao);
+  const [titulo, setTitulo] = useState(taxaData.titulo);
+
+  const [valor, setValor] = useState(taxaData.valor);
 
   const handleAddSeller = async () => {
     try {
@@ -44,12 +48,9 @@ export default function AddFeels({ navigation }) {
   return (
     <View style={styles.container}>
       <Header2 namePage={"Adicionar Cupons"} navigation={navigation} />
-      <TextInput
-        style={styles.input}
-        placeholder="Descrição"
-        value={descricao}
-        onChangeText={(text) => setDescricao(text)}
-      />
+      <Text style={[styles.listItemTitle, globalStyles.mr_4, globalStyles.ml_3, globalStyles.mb_2]}>{titulo}</Text>
+      <Text style={[globalStyles.mr_4, globalStyles.ml_3, globalStyles.mb_2]}>{descricao}</Text>
+
 
       <TextInput
         style={styles.input}
@@ -57,14 +58,9 @@ export default function AddFeels({ navigation }) {
         value={valor}
         onChangeText={(text) => setValor(text)}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Titulo"
-        value={titulo}
-        onChangeText={(text) => setTitulo(text)}
-      />
+     
       <SellerBtn
-        title={"Cadastrar Cupom"}
+        title={"Cadastrar Taxa"}
         navigation={navigation}
         isButtonDisabled={isButtonDisabled}
         onPress={handleAddSeller}

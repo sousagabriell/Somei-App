@@ -20,25 +20,24 @@ const imagePaths = [
 ];
 
 export default function FeelsList({ navigation }) {
+  const [taxas, setTaxas] = useState([]);
+  const handleFeels = async () => {
+    try {
+      const feelsData = await getAllFeels();
 
-    const [taxas, setTaxas] = useState([]);
-    const handleFeels = async () => {
-      try {
-        const feelsData = await getAllFeels();
-  
-        if (feelsData && feelsData.data) {
-            setTaxas(feelsData.data);
-        } else {
-          console.error('Erro ao obter cupons após o login.');
-        }
-      } catch (error) {
-        console.error('Erro ao fazer login:', error);
+      if (feelsData && feelsData.data) {
+        setTaxas(feelsData.data);
+      } else {
+        console.error("Erro ao obter cupons após o login.");
       }
-    };
-  
-    useEffect(() => {
-      handleFeels();
-    }, []);
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
+  };
+
+  useEffect(() => {
+    handleFeels();
+  }, []);
 
   const [selectedSeller, setSelectedSeller] = useState(null);
 
@@ -47,14 +46,16 @@ export default function FeelsList({ navigation }) {
   };
 
   const renderCupomItem = ({ item }) => (
-    <View style={[styles.listItemContainer, globalStyles.mb_2, globalStyles.mt_2]}>
+    <View
+      style={[styles.listItemContainer, globalStyles.mb_2, globalStyles.mt_2]}
+    >
       <View style={styles.listItemTextContainer}>
         <Text style={styles.listItemTitle}>{item.titulo}</Text>
         <Text style={globalStyles.mb_3}>{item.descricao}</Text>
       </View>
       <TouchableOpacity
         style={styles.checkboxContainer}
-        onPress={() => navigation.navigate("EditCoupon", { cupomData: item })}
+        onPress={() => navigation.navigate("AddFeels", { taxaData: item })}
       >
         <View style={[styles.checkbox]}></View>
       </TouchableOpacity>
@@ -77,7 +78,6 @@ export default function FeelsList({ navigation }) {
       />
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
