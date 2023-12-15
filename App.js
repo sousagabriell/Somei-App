@@ -28,6 +28,7 @@ import EditCoupon from './screens/EditCoupon';
 import EditCoupom from './screens/EditCoupon';
 import Feels from './screens/Feels';
 import AddFeels from './screens/AddFeels';
+import EditClient from './screens/EditClient'
 
 const customTheme = {
   ...theme,
@@ -120,6 +121,10 @@ export default function App() {
             <Stack.Screen
               name="AddFeels"
               component={AddFeels}
+            />
+            <Stack.Screen
+              name="EditClient"
+              component={EditClient}
             />
           </Stack.Navigator>
         </NavigationContainer>

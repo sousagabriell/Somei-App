@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from "react-native";
-import { globalStyles } from "../styles";
-import { Header2 } from "./Header2";
+
 import * as ImagePicker from 'expo-image-picker';
-import { ClientBtn } from "./ClientBtn";
+import { ClientBtn } from "../../components/ClientBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { cadastrarCliente } from "../services/clientService";
+import { cadastrarCliente } from "../../services/clientService";
 
 
 export default function AddClient({ navigation, route }) {
@@ -13,7 +12,7 @@ export default function AddClient({ navigation, route }) {
   const [idCliente, setIdCliente] = useState(clientsData.idCliente.toString());
   const [nome, setNome] = useState(clientsData.nome);
   const [email, setEmail] = useState(clientsData.email);
-  const [cpfcnpj, setCpfcnpj] = useState(clientsData.cpfcnpj);
+  const [cpfcnpj, setCpfcnpj] = useState(clientsData.cpfCnpj);
   const [caminhoImagem, setCaminhoImagem] = useState(clientsData.caminhoImagem);
 
   const handleEditClient = async () => {
@@ -120,7 +119,7 @@ export default function AddClient({ navigation, route }) {
         nome: nome,
         cpfcnpj: cpfcnpj,
         email: email,
-        idCliente: userData.cliente.idCliente,
+        caminhoImagem: "Caminho Imagem"
       };
       const resultadoCadastro = await cadastrarCliente(clientsData);
       console.log(resultadoCadastro + 'aqui');
@@ -141,10 +140,9 @@ export default function AddClient({ navigation, route }) {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <TouchableOpacity onPress={handleImagePicker} style={styles.imagePickerButton}>
-          <Image source={image ? { uri: image } : require("../assets/default-user.png")} style={styles.image} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleCameraPicker} style={styles.cameraButton}>
-          <Image source={require("../assets/cam.png")} style={styles.cameraIcon} />
+          <Image source={require("../../assets/cam.png")} style={styles.cameraIcon} />
         </TouchableOpacity>
       </View>
       <TextInput

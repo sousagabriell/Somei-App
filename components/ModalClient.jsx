@@ -5,32 +5,7 @@ import { Feather } from '@expo/vector-icons';
 
 export default function ModalClient({ navigation, searchQuery,client }) {
   const [selectedClient, setSelectedClient] = useState(null);
-  const ClientsData = [
-    {
-      id: "1",
-      title: "Zé da Universal",
-      subtitle: "Pessoa Física",
-      image: require("../assets/client1.png"),
-    },
-    {
-      id: "2",
-      title: "Mata Grande",
-      subtitle: "Pessoa Física",
-      image: require("../assets/client2.png"),
-    },
-    {
-      id: "3",
-      title: "Shopee",
-      subtitle: "Pessoa Juridica",
-      image: require("../assets/client3.png"),
-    },
-    {
-      id: "4",
-      title: "B.O Kaze",
-      subtitle: "Pessoa Juridica",
-      image: require("../assets/client4.png"),
-    },
-  ];
+  
 
   const handleToggleSelection = (ClientId) => {
     setSelectedClient(ClientId === selectedClient ? null : ClientId);

@@ -57,7 +57,7 @@ export default function ClientSelect({ navigation }) {
           <Image source={require("../../assets/right.png")} style={styles.icon2} />
         </TouchableOpacity>
         <View style={styles.container}>
-          <ModalClient searchQuery={searchQuery} client={client} handleAddClient={handleAddClient} />
+          <ModalClient searchQuery={searchQuery} client={client} navigation={navigation} handleAddClient={handleAddClient} />
         </View>
       </View>
     </View>
