@@ -1,61 +1,35 @@
+// CupomList.jsx
 import React, { useState } from "react";
 import {
   View,
   Text,
-  Image,
-  StyleSheet,
-  FlatList,
   TouchableOpacity,
+  StyleSheet,
+  Image,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { globalStyles } from "../styles";
-import { Feather } from "@expo/vector-icons";
-export default function ModalSeller({ navigation, searchQuery }) {
-  const [selectedSeller, setSelectedSeller] = useState(null);
 
-  const sellersData = [
-    {
-      id: "1",
-      title: "Ana Beatriz",
-      subtitle: "Diretora MKT",
-      image: require("../assets/seller1.png"),
-    },
-    {
-      id: "2",
-      title: "Breno Oliveira",
-      subtitle: "Designer",
-      image: require("../assets/seller3.png"),
-    },
-    {
-      id: "3",
-      title: "Vitória Giovanna",
-      subtitle: "Pesquisa e UX",
-      image: require("../assets/seller2.png"),
-    },
-    {
-      id: "4",
-      title: "Luiza Magazine",
-      subtitle: "Gerente de vendas",
-      image: require("../assets/seller4.png"),
-    },
-    {
-      id: "5",
-      title: "Luiza Magazine",
-      subtitle: "Gerente de vendas",
-      image: require("../assets/seller4.png"),
-    },
-  ];
+const imagePaths = [
+  require("../assets/cupom/cupom-1.png"),
+  require("../assets/cupom/cupom-2.png"),
+  require("../assets/cupom/cupom-3.png"),
+  require("../assets/cupom/cupom-4.png"),
+];
+
+export default function CupomList({ cupons, navigation }) {
+  const [selectedSeller, setSelectedSeller] = useState(null);
 
   const handleToggleSelection = (sellerId) => {
     setSelectedSeller(sellerId === selectedSeller ? null : sellerId);
   };
 
-  const renderListSeller = ({ item }) => (
-    <View style={styles.listItemContainer}>
+  const renderCupomItem = ({ item }) => (
+    <View style={[styles.listItemContainer, globalStyles.mt_1]}>
       <TouchableOpacity
         style={styles.editButton}
-        onPress={() => {
-        }}
+        onPress={() => navigation.navigate("EditCoupon", { cupomData: item })}
       >
         <Image
           source={require("../assets/Create.png")}
@@ -63,38 +37,40 @@ export default function ModalSeller({ navigation, searchQuery }) {
         />
       </TouchableOpacity>
       <View style={styles.listItemTextContainer}>
-        <Text style={styles.listItemTitle}>{item.title}</Text>
-        <Text style={styles.listItemSubtitle}>{item.subtitle}</Text>
+        <Text style={styles.listItemTitle}>{item.titulo}</Text>
+        <Text>{item.descricao}</Text>
       </View>
-      <Image source={item.image} style={styles.listItemImage} />
+      <Image style={styles.listItemImage} source={getRandomImagePath()} />
       <TouchableOpacity
         style={styles.checkboxContainer}
         onPress={() => handleToggleSelection(item.id)}
       >
-        <View
-          style={[
-            styles.checkbox,
-            selectedSeller === item.id && styles.checkboxSelected,
-          ]}
-        >
-          {selectedSeller === item.id && <View style={styles.innerCheckbox} />}
-        </View>
+        <View style={[styles.checkbox]}></View>
       </TouchableOpacity>
+      <View
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: "black",
+          marginVertical: 5,
+        }}
+      />
     </View>
   );
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Vendedores</Text>
-      <ScrollView>
-        <FlatList
-          data={sellersData}
-          keyExtractor={(item) => item.id}
-          renderItem={renderListSeller}
-        />
-      </ScrollView>
+      <FlatList
+        data={cupons}
+        keyExtractor={(item) => item.idCupom.toString()}
+        renderItem={renderCupomItem}
+      />
     </View>
   );
+
+  function getRandomImagePath() {
+    const randomIndex = Math.floor(Math.random() * imagePaths.length);
+    return imagePaths[randomIndex];
+  }
 }
 
 const styles = StyleSheet.create({
@@ -102,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     paddingBottom: 200,
-    height: '150%',
+    height: "150%",
   },
   pageTitle: {
     fontSize: 18,
@@ -121,7 +97,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 15,
-    marginVertical: 5
+    marginVertical: 5,
   },
   listItemTextContainer: {
     flex: 1,
@@ -138,8 +114,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   checkbox: {
-    width: 20,
-    height: 20,
+    width: 15,
+    height: 15,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "#ccc",
@@ -159,7 +135,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   editImage: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
   },
 });
+{
+}

@@ -22,6 +22,11 @@ import AddClient from './components/AddClient';
 import Products from './screens/Products';
 import AddProduct from './components/AddProduct';
 import AddService from './components/AddService';
+import Coupon from './screens/Coupon';
+import AddCoupon from './screens/AddCoupon';
+import EditCoupon from './screens/EditCoupon';
+import EditCoupom from './screens/EditCoupon';
+import Feels from './screens/Feels';
 
 const customTheme = {
   ...theme,
@@ -94,6 +99,22 @@ export default function App() {
             <Stack.Screen
               name="AddService"
               component={AddService}
+            />
+            <Stack.Screen
+              name="Coupon"
+              component={Coupon}
+            />
+            <Stack.Screen
+              name="AddCoupon"
+              component={AddCoupon}
+            />
+              <Stack.Screen
+              name="EditCoupon"
+              component={EditCoupon}
+            />
+             <Stack.Screen
+              name="Feels"
+              component={Feels}
             />
           </Stack.Navigator>
         </NavigationContainer>
