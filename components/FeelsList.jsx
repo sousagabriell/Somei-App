@@ -54,7 +54,7 @@ export default function FeelsList({ navigation }) {
       </View>
       <TouchableOpacity
         style={styles.checkboxContainer}
-        onPress={() => handleToggleSelection(item.id)}
+        onPress={() => navigation.navigate("EditCoupon", { cupomData: item })}
       >
         <View style={[styles.checkbox]}></View>
       </TouchableOpacity>

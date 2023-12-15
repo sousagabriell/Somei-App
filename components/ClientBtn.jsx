@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import { globalStyles } from '../styles';
 
-export function ClientBtn({ navigation, isButtonDisabled }) {
+export function ClientBtn({ navigation, isButtonDisabled, onPress }) {
   return (
     <View style={styles.shadowContainer}>
       <View style={[styles.container, globalStyles.pt_2]}>
@@ -16,7 +16,7 @@ export function ClientBtn({ navigation, isButtonDisabled }) {
               width: isButtonDisabled ? '100%' : '100%',
             },
           ]}
-          onPress={() => navigation.goBack()}
+          onPress={onPress}
           disabled={isButtonDisabled}
         >
           <Text style={styles.leftText}>Cadastrar cliente</Text>

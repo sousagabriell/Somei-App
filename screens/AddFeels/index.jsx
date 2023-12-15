@@ -6,7 +6,7 @@ import { cadastrarCupom } from "../../services/couponsService";
 import { Header2 } from "../../components/Header2";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function AddCoupon({ navigation }) {
+export default function AddFeels({ navigation }) {
   const [descricao, setDescricao] = useState("");
   const [valor, setValor] = useState("");
   const [titulo, setTitulo] = useState("");
@@ -25,6 +25,7 @@ export default function AddCoupon({ navigation }) {
         valor: parseFloat(valor),
         titulo: titulo,
         porcentagem: false,
+        idEmpresa: userData.empresa.idEmpresa,
       };
       const resultadoCadastro = await cadastrarCupom(cupomData);
       if (resultadoCadastro) {

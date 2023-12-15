@@ -72,7 +72,7 @@ export default function AddClient({ navigation }) {
         nome: nome,
         cpfcnpj: cpfcnpj,
         email: email,
-        idCliente: userData.cliente.idCliente,
+        caminhoImagem: "dewdwe"
       };
       const resultadoCadastro = await cadastrarCliente(clientsData);
       console.log(resultadoCadastro + 'aqui');

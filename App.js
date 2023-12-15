@@ -27,6 +27,7 @@ import AddCoupon from './screens/AddCoupon';
 import EditCoupon from './screens/EditCoupon';
 import EditCoupom from './screens/EditCoupon';
 import Feels from './screens/Feels';
+import AddFeels from './screens/AddFeels';
 
 const customTheme = {
   ...theme,
@@ -115,6 +116,10 @@ export default function App() {
              <Stack.Screen
               name="Feels"
               component={Feels}
+            />
+            <Stack.Screen
+              name="AddFeels"
+              component={AddFeels}
             />
           </Stack.Navigator>
         </NavigationContainer>
