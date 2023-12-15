@@ -4,12 +4,18 @@ import { styles } from './styles';
 import { Image, SafeAreaView, Text, View, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ProductsData from '../../components/ProductsData'; // Importe o componente ProductsData
+import NewProduct from "../../components/NewProduct";
 
 export default function Products({ navigation }) {
     const [selectedButton, setSelectedButton] = useState('Geral');
+    const [isSomeiModalVisible, setIsSomeiModalVisible] = useState(false);
 
     const handleButtonPress = (button) => {
         setSelectedButton(button);
+    };
+
+    const toggleSomeiModal = () => {
+        setIsSomeiModalVisible(!isSomeiModalVisible);
     };
 
     return (
@@ -29,11 +35,12 @@ export default function Products({ navigation }) {
                 </TouchableOpacity>
 
                 <View style={styles.content}>
-                    <TouchableOpacity style={styles.buttonProduct}>
+                    <TouchableOpacity style={styles.buttonProduct} onPress={toggleSomeiModal}>
                         <Image style={styles.left} source={require('../../assets/plus.png')} />
                         <Text style={styles.buttonText}>
                             Adicionar produto
                         </Text>
+                        {isSomeiModalVisible && <NewProduct visible={isSomeiModalVisible} onClose={toggleSomeiModal} navigation={navigation} />}
                     </TouchableOpacity>
 
                     <View style={styles.buttonRow}>

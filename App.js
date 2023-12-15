@@ -20,7 +20,8 @@ import AddSeller from './components/AddSeller';
 import ClientSelect from './screens/ClientSelect';
 import AddClient from './components/AddClient';
 import Products from './screens/Products';
-
+import AddProduct from './components/AddProduct';
+import AddService from './components/AddService';
 
 const customTheme = {
   ...theme,
@@ -85,6 +86,14 @@ export default function App() {
             <Stack.Screen
               name="Products"
               component={Products}
+            />
+            <Stack.Screen
+              name="AddProduct"
+              component={AddProduct}
+            />
+            <Stack.Screen
+              name="AddService"
+              component={AddService}
             />
           </Stack.Navigator>
         </NavigationContainer>

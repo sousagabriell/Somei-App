@@ -5,10 +5,9 @@ import { Header2 } from "./Header2";
 import * as ImagePicker from 'expo-image-picker';
 import { ClientBtn } from "./ClientBtn";
 
-export default function AddClient({ navigation }) {
+export default function AddService({ navigation }) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
-  const [tel, setTel] = useState("");
   const [image, setImage] = useState(null);
 
   const requestGalleryPermission = async () => {
@@ -60,7 +59,7 @@ export default function AddClient({ navigation }) {
     // Não sei como fazer isso aqui funcionar
   };
 
-  const isButtonDisabled = !(name && role && tel);
+  const isButtonDisabled = !(name && role);
 
   return (
     <View style={styles.container}>
@@ -87,8 +86,8 @@ export default function AddClient({ navigation }) {
       <TextInput
         style={styles.input}
         placeholder="Telefone"
-        value={telefone}
-        onChangeText={(text) => setTel(text)}
+        value={role}
+        onChangeText={(text) => setRole(text)}
       />
       <ClientBtn navigation={navigation} isButtonDisabled={isButtonDisabled} />
     </View>
