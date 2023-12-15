@@ -41,9 +41,7 @@ export default function ModalClient({ navigation, searchQuery,client }) {
        {/* Botão de Edição */}
        <TouchableOpacity
         style={styles.editButton}
-        onPress={() => {
-          // Adicione a lógica de edição aqui
-        }}
+        onPress={() => navigation.navigate("EditClient", { clientsData: item })}
       >
         <Image source={require("../assets/Create.png")} style={styles.editImage} />
       </TouchableOpacity>
